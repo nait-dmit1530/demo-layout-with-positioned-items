@@ -2,3 +2,87 @@ body {
     background-color: #192f5e;
     font-family: sans-serif;
 }
+
+.inner-container {
+    max-width: 66.25rem; /* set max width */
+    margin: 0 auto;
+    /* sets the margin top & bottom to 0 and left & right to auto 
+        AUTO means: what ever width is left over after the max-width is reached
+        is automatically halved and split between the left & right side of the
+        viewport */
+}
+
+section {
+    padding: 3.125rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+section p {
+    font-size: 1.75rem;
+    color: #d5e294;
+    border-bottom: 2px solid #d5e294;
+    margin-bottom: .625rem;
+    padding-bottom: 0.625rem;
+}
+
+section h2 {
+    font-size: 3.125rem;
+    color: #fff;
+    margin-bottom: 24px;
+}
+
+.gallery {
+    display: flex;
+    /* makes all div child elements flex-items (puts them in a row) */
+    flex-direction: column;
+    /* rotates the flex container and puts the elements in a column again */
+    align-items: center;
+    /* need to use align-items (not justify-content) to center flex-items */
+    gap: 1rem;
+}
+
+
+span {
+    background-color: #87a6ab;
+    color: #fff;
+    padding: 0.5rem 2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    /* positions the "NEW" (span) over top of the image by taking it out of
+        the flow of the web doc */
+    position: absolute;
+    /* the top, right, bottom, and left values positions this span */
+    top: -10px; 
+    right: -10px; /* negative numbers allowed when using absolute */
+}
+
+.thumbnail {
+    /* assigning position:relative and applying it to the thumbnail class 
+        restricts the span element to be restricted inside the thumbnail */
+    position: relative;
+}
+
+@media screen and (min-width: 800px) {
+    .gallery {
+        /* flex-direction: row; 
+        /* puts flex container back to default orientation */
+        flex-flow: row wrap; /* short hand. does the same as flex-direction above */
+        /* puts flex container back to default orientation 
+            (not rotated) and wraps the flex items */
+        justify-content: center; 
+        /* because flex container is no longer rotated, justify-content
+            (not align-items) is used to center the flex-items */
+    }
+}
+
+@media screen and (min-width: 1060px) {
+    .gallery {
+        flex-flow: row; /* short hand. does the same as flex-direction above */
+        /* puts flex container back to default orientation 
+            (not rotated) and won't wrape the flex items */
+        justify-content: center; 
+        /* because flex container is no longer rotated, justify-content
+            (not align-items) is used to center the flex-items */
+    }
+}
